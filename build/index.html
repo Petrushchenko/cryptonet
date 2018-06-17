@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>cryptonet</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="css/normalize.css">
 </head>
 
 <body>
@@ -15,39 +16,40 @@
 	<div class="wrapper">
 		<div>
 			<div class="container navigation">
-			<div class="navigation__logo">
-				<a href="#">
-					<img src="images/image4.jpg">
-					<h1>Cryptonet</h1>
-				</a>
-			</div>
-			<nav class="navigation__menu">
-				<ul class="navigation__primary">
-					<li>
-						<a href="#">O нас</a>
-					</li>
-					<li>
-						<a href="#">Получить бесплатно</a>
-					</li>
-				</ul>
-				<ul class="navigation__secondary">
-					<li>
-						<a href="tel:+380671111111">+38 (067) 111 11 11</a>
-					</li>
-					<li>
-						<a href="mailto:hello@cryptonet.com">hello@cryptonet.com</a>
-					</li>
-				</ul>
-			</nav>
-			<button class="navigation__button">
-				<span></span>
-				<span></span>
-				<span></span>
-			</button>
+				<div class="navigation__logo">
+					<a href="#">
+						<img src="images/image4.jpg">
+						<h1>Cryptonet</h1>
+					</a>
+				</div>
+				<nav class="navigation__menu">
+					<ul class="navigation__primary">
+						<li>
+							<a href="#">O нас</a>
+						</li>
+						<li>
+							<a href="#">Получить бесплатно</a>
+						</li>
+					</ul>
+					<ul class="navigation__secondary">
+						<li>
+							<a href="tel:+380671111111">+38 (067) 111 11 11</a>
+						</li>
+						<li>
+							<a href="mailto:hello@cryptonet.com">hello@cryptonet.com</a>
+						</li>
+					</ul>
+				</nav>
+				<button class="navigation__button">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<div class="navigation__modal"></div>
 			</div>
 		</div>
 		<header class="container header">
-			<h1>Как правильно инвестировать<br>в цифровые активы</h1>
+			<h1>Как правильно инвестировать в цифровые активы</h1>
 			<div>
 				<h3>Самая полная инструкция по инвестированию в 2018 г. </h3>
 				<p>С чего начать, если пробовал подступиться к инвестированию и всё срывалось.
@@ -56,7 +58,7 @@
 			</div>
 			<form class="header__form form">
 				<input type="email" name="email" placeholder="Ваш email">
-				<input type="submit" name="take" value="Забрать инструкцию бесплатно" >
+				<input type="submit" name="submit" value="Забрать инструкцию бесплатно" >
 			</form>
 		</header>
 		<main class="main">
@@ -77,27 +79,37 @@
 				</div>
 				<form class="form form__main">
 					<input type="email" name="email" required placeholder="Ваш email">
-					<input type="submit" name="take" value="получить бесплатную инструкцию">
+					<input type="submit" name="submit" value="получить бесплатную инструкцию">
 				</form>
 			</section>
 		</main>
+			
 	</div>
 	<div class="modal">
+		<label for="close"></label>
+		<button id="close"></button>
+	</div>
+	<template id="template_modal">
 		<div class="modal__header">
-			<p>отлично</p>
+			<h2 >отлично !!!</h2>
 			<p>Инструкция уже отправлена Вам на почту</p>
 			<p>Хотите ценный бонус бесплатно?
 				2 простых шага - и он Ваш
 			</p>
-			<div class="modal__arrow"></div>
+			<div class="modal__arrow">
+				<a href="#steps">
+					<div></div>
+					<div></div>
+				</a>
+			</div>
 		</div>
 		<div class="modal__steps">
 			<div>
 				<h4>Шаг 1</h4>
 				<p>Оставьте номер телефона</p>
 				<form >
-					<input type="tel" name="tel" required placeholder="Ваш номер телефона">
-					<input type="submit" name="take" value="tel" placeholder="оставить номер">
+					<input type="tel" name="tel" placeholder="Ваш номер телефона">
+					<input type="submit" name="take" value="оставить номер" >
 				</form>
 			</div>
 			<div>
@@ -108,7 +120,7 @@
 				</form>
 			</div>
 		</div>
-	</div>
+	</template>
     <script src="js/script.js"></script>
 </body>
 

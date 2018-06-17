@@ -52,6 +52,7 @@ gulp.task('styles', function(){
 
 gulp.task ('css', function (){
     gulp.src(path.src.css)
+        .pipe(cssmin())
         .pipe(gulp.dest(path.build.css));
 });
 
