@@ -18,15 +18,16 @@ var path = {
         html: 'src/index.html', 
         js: 'src/js/*.js',
         style: 'src/style/main.scss',
+        css: 'src/style/*.css',
         img: 'src/images/*.*', 
-        fonts: 'src/fonts/*.*'
+        fonts: 'src/fonts/*/*.*'
     },
     watch: { 
         html: 'src/index.html',
         js: 'src/js/**/*.js',
         style: 'src/style/**/*.scss',
         img: 'src/images/*.*',
-        fonts: 'src/fonts/*.*'
+        fonts: 'src/fonts/*/*.*'
     },
     clean: './build'
 };
@@ -49,18 +50,23 @@ gulp.task('styles', function(){
         .pipe(gulp.dest(path.build.css));
 });
 
+gulp.task ('css', function (){
+    gulp.src(path.src.css)
+        .pipe(gulp.dest(path.build.css));
+});
+
 gulp.task('images', function(){
-   	gulp.src(path.src.img)
+    gulp.src(path.src.img)
         .pipe(imagemin([
-		    imagemin.jpegtran({progressive: true}),
-		    imagemin.optipng({optimizationLevel: 5}),
-		    imagemin.svgo({
-        		plugins: [
-	           		 {removeViewBox: true},
-	           		 {cleanupIDs: false}
-       			]		
-   			})
-		]))
+            imagemin.jpegtran({progressive: true}),
+            imagemin.optipng({optimizationLevel: 5}),
+            imagemin.svgo({
+                plugins: [
+                     {removeViewBox: true},
+                     {cleanupIDs: false}
+                ]       
+            })
+        ]))
         .pipe(gulp.dest(path.build.img));
 });
 
@@ -69,12 +75,13 @@ gulp.task('fonts', function() {
         .pipe(gulp.dest(path.build.fonts))
 });
 
-gulp.task('build', ['html', 'scripts', 'styles', 'fonts', 'images']);
+gulp.task('build', ['html', 'scripts', 'styles', 'css', 'fonts', 'images']);
 
 gulp.task('watch', function(){
     gulp.watch(path.watch.style, ['styles']); 
     gulp.watch(path.watch.html, ['html']); 
     gulp.watch(path.watch.img, ['images']);
+    gulp.watch(path.watch.js, ['scripts']);
   });
 
 gulp.task('default', ['build', 'watch']);
