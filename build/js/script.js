@@ -5,6 +5,8 @@ window.onload = function () {
 	animate(h, 'active');
 
 	modal();
+
+	
 }
 
 function animate(el, cl) {
@@ -63,7 +65,8 @@ function modal() {
 		document.body.style.overflow = 'auto';
 	});
 
-}
+	windowWidth(519, dropdown);
+};
 
 
 function insertEl(el, elToInsert) {
@@ -73,3 +76,12 @@ function insertEl(el, elToInsert) {
 	}
 };
 
+function windowWidth(a, dropdown) {
+	var windWidth = window.screen.width;
+	var linkHidden = document.querySelectorAll('.navigation__menu li:last-child');
+	if (windWidth <= a) {
+
+		insertEl(dropdown, linkHidden);
+
+	}
+};
