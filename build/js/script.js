@@ -78,7 +78,7 @@ function insertEl(el, elToInsert) {
 
 function windowWidth(a, dropdown) {
 	var windWidth = window.screen.width;
-	var linkHidden = document.querySelectorAll('.navigation__menu li:last-child');
+	var linkHidden = document.querySelectorAll('.navigation__primary li:last-child');
 	if (windWidth <= a) {
 
 		insertEl(dropdown, linkHidden);
